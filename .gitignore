@@ -1,0 +1,8 @@
+# Remove them
+.idea
+*.log
+node_modules/
+package-lock.json
+
+# Keep them
+!favicon.ico

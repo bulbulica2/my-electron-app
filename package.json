@@ -1,0 +1,16 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "Hello World!",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "bulbulica",
+  "license": "MIT",
+  "devDependencies": {
+  },
+  "dependencies": {
+    "electron": "13.0.1"
+  }
+}
