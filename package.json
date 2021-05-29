@@ -1,16 +1,89 @@
 {
-  "name": "my-electron-app",
-  "version": "1.0.0",
-  "description": "Hello World!",
-  "main": "main.js",
+  "name": "vue2",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "electron ."
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint",
+    "electron:build": "vue-cli-service electron:build",
+    "electron:serve": "vue-cli-service electron:serve",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps"
   },
-  "author": "bulbulica",
-  "license": "MIT",
-  "devDependencies": {
-  },
+  "main": "background.js",
   "dependencies": {
-    "electron": "13.0.1"
+    "core-js": "3.13.1",
+    "vue": "3.0.11",
+    "vue-router": "4.0.8",
+    "vuex": "4.0.1",
+    "electron-devtools-installer": "3.2.0",
+    "electron": "12.0.9",
+    "vue-cli-plugin-electron-builder": "2.0.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "4.5.13",
+    "@vue/cli-plugin-eslint": "4.5.13",
+    "@vue/cli-plugin-router": "4.5.13",
+    "@vue/cli-plugin-unit-jest": "4.5.13",
+    "@vue/cli-plugin-vuex": "4.5.13",
+    "@vue/cli-service": "4.5.13",
+    "@vue/compiler-sfc": "3.0.11",
+    "@vue/eslint-config-airbnb": "5.3.0",
+    "@vue/test-utils": "2.0.0-rc.6",
+    "babel-eslint": "10.1.0",
+    "eslint": "6.8.0",
+    "eslint-plugin-import": "2.23.3",
+    "eslint-plugin-vue": "7.10.0",
+    "lint-staged": "9.5.0",
+    "spectron": "14.0.0",
+    "typescript": "3.9.9",
+    "vue-jest": "5.0.0-alpha.9"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "@vue/airbnb"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {},
+    "overrides": [
+      {
+        "files": [
+          "**/__tests__/*.{j,t}s?(x)",
+          "**/tests/unit/**/*.spec.{j,t}s?(x)"
+        ],
+        "env": {
+          "jest": true
+        }
+      }
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "jest": {
+    "preset": "@vue/cli-plugin-unit-jest",
+    "transform": {
+      "^.+\\.vue$": "vue-jest"
+    }
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
   }
 }
