@@ -1,12 +1,13 @@
 import { createApp } from 'vue';
 import isElectron from 'is-electron';
-import WebApp from './WebApp.vue';
-import router from './router';
-import store from './store';
+import WebApp from '@/web/App.vue';
+import DesktopApp from '@/desktop/App.vue';
+import router from '@/web/router';
+import store from '@/web/store';
 
 // check for desktop or web app
 if (isElectron()) {
-  // run electron app
+  createApp(DesktopApp).mount('#app');
 } else {
   createApp(WebApp).use(store).use(router).mount('#app');
 }
